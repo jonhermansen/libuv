@@ -193,12 +193,14 @@ jobs:
           # The OS versions supported are specific to the version of the action
           # https://github.com/cross-platform-actions/action/blob/master/changelog.md
           - { os: freebsd, version: '13.1', runner: 'ubuntu-latest', install: 'pkg install -y' }
+          - { os: freebsd, version: '14.3', runner: 'ubuntu-latest', install: 'pkg install -y' }
           - { os: openbsd, version: '7.2',  runner: 'macos-11', install: 'pkg_add -I' }
+          - { os: openbsd, version: '7.5',  runner: 'macos-11', install: 'pkg_add -I' }
 
     steps:
       - uses: actions/checkout@v2
 
-      - uses: cross-platform-actions/action@v0.9.0
+      - uses: cross-platform-actions/action@v0.29.0
         with:
           operating_system: ${{ matrix.config.os }}
           version: ${{ matrix.config.version }}
